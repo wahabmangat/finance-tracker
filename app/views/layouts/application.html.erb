@@ -11,9 +11,10 @@
   </head>
 
   <body>
+    <div class="container">
     <%= yield :welcome_navbar%> 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%=render 'layouts/messages'%>
     <%= yield %>
+    </div>
   </body>
 </html>

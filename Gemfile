@@ -5,6 +5,7 @@ ruby '3.0.1'
 #use of devise for authentication purpose 
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'iex-ruby-client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
