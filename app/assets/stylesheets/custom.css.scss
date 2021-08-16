@@ -2,11 +2,27 @@
 navbar {
     background-color: #FDF6EA !important;
 }
-     
+
 .navbar-brand {  
    font-size: 2rem;
 }
     
 h1 {
    color: red;
+}
+.search-area{
+   padding-top: 50px;
+}
+.no-right-padding{
+   padding-right: 1px !important;
+}
+.no-left-padding{
+   padding-left: 1px !important;
+}
+.result-block{
+   display: inline-block;
+}
+.padding-right
+{
+   padding-right: 1px;
 }
