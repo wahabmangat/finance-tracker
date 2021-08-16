@@ -1,4 +1,8 @@
 <% if resource.errors.any? %>
+  <div class='alert alert-danger'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>  
   <div id="error_explanation">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
@@ -7,9 +11,11 @@
        %>
     </h2>
     <ul>
+     
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
+      </div>
     </ul>
   </div>
 <% end %>
