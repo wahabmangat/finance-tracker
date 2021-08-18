@@ -1,2 +1,6 @@
-<h1>Welcome#index</h1>
+<% content_for :welcome_navbar do%>
+<%=render 'layouts/navbar'%>
+<%end%>
+<h1>Welcome to the Finance Tracker app</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+<strong><%= link_to "Signout", destroy_user_session_path, method: :delete %></strong>

@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <div class="container">
+    <%= yield :welcome_navbar%> 
+    <%=render 'layouts/messages'%>
     <%= yield %>
+    </div>
   </body>
 </html>
