@@ -12,7 +12,9 @@
 					%>
         <% else %>
 					<span class="badge badge-secondary">
-						You are already tracking.
+						You are already tracking
+						<%= '10 stocks.' unless current_user.under_stock_limit?%>
+						<%= 'this stock' if current_user.stock_already_tracked?(stock.ticker)%>
 					</span>
         <%end%>
     </div>
