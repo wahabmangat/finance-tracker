@@ -1,13 +1,24 @@
 <h1>My Friends</h1>
 <br>
-<%= search_form_for @q,url: search_friend_path, :remote => true do |f| %>
-  <%= f.label :_cont,"Search friend" %>
-  <%= f.search_field :first_name_or_last_name_or_email_cont %>
-  <%= f.submit %>
-<% end %>
-
+<div class="search-area">
+  <%= search_form_for @q,url: search_friend_path, remote: true do |f| %>
+    <h3><%= f.label :_cont,"Search friends" %></h3>
+    <div class="form-group row">
+      <div class="col-sm-8 no-right-padding">
+        <%= f.search_field :first_name_or_last_name_or_email_cont,  placeholder: "Name or Email", autofocus: true, class: "form-control form-control-lg"%>
+      </div>
+      <div class="col-sm-5 no-left-padding">
+        <%= f.submit class: "btn btn-success" do%>
+        <i class="fa fa-search fa-2x"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <div id="friend-results">
 </div>
 <% unless @my_friends.empty?%>
 	<%= render 'friends/list'%>
 <% end %>
+
+
