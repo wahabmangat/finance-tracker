@@ -9,7 +9,7 @@
           <tr>
             <td><strong >Name: </strong> <%= f.full_name + " "%></td>
             <td><strong >Email: </strong> <%= f.email%></td>
-            <td><%= link_to 'View profile', '#', class: "btn btn-info", method: :get%>
+            <td><%= link_to 'View profile', user_path(f), class: "btn btn-info", method: :get%>
             <%if current_user.not_friends_with?(f.id)%>
               <%= link_to 'Follow friend?',friendships_path(friend: f),
                   class: "btn btn-success", method: :post

@@ -1,0 +1,26 @@
+<br> 
+<h2>User Details</h2>
+<div class="result-block">
+  <%= render 'layouts/messages'%>
+</div>
+<% if @user.present?%>  
+  <div class ="card card-header result-block">
+    <table class="col-md-12">
+      <tbody>
+          <tr>
+            <td><strong >Name: </strong> <%= @user.full_name + " "%></td>
+            <td><strong >Email: </strong> <%= @user.email%></td>
+            <td>
+            <%if current_user.not_friends_with?(@user.id)%>
+              <%= link_to 'Follow friend?',friendships_path(friend: @user),
+                  class: "btn btn-success even-larger-badge", method: :post
+              %></td>
+            <%else %>
+              <span class="badge badge-secondary even-larger-badge">Already friend</span>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+

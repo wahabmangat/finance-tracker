@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def my_friends
     @my_friends = current_user.friends
   end
+  def show
+    @user = User.find(params[:id])
+  end
   def search
     if params[:q].values.reject(&:blank?).any?
       @q = User.ransack(params[:q])
