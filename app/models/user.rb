@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
+  has_many :friendships
+  has_many :friends, through: :friendships
   #attr_accessible :first_name, :last_name
   # validates :first_name, presence: true
   # validates :last_name, presence: true
