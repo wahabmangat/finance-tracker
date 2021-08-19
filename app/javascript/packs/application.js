@@ -13,3 +13,7 @@ Turbolinks.start()
 ActiveStorage.start()
 import "bootstrap"
 
+
+
+
+
