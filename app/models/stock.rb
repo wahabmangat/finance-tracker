@@ -15,5 +15,10 @@ class Stock < ApplicationRecord
     end
 		def self.check_db(ticker_symbol)
 			find_by_ticker(ticker_symbol)
-		end    
+		end  
+    def update_price(ticker_symbol)
+      @obj = new_lookup(ticker_symbol)
+      self.last_price = @obj.last_price
+      self.save
+    end  
 end

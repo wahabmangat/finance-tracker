@@ -5,9 +5,14 @@
 					<tr>
 						<th scope="col">Ticker</th>
 						<th scope="col">Name</th>
-						<th scope="col">Last Price</th>
+						<th scope="col"><%= 'Last Price '%> 
+             <%= link_to '#', class: "btn btn-xs btn-info" do %>
+             <i class="fas fa-redo-alt"></i>
+            <% end %>
+            </th>
 						<th scope="col">Actions </th>
 					</tr>
+
 				</thead>
 
 				<tbody>
@@ -32,7 +37,9 @@
 					      </span>
               <%end%>
             </td>
+
 					</tr>
+          
 				<% end%>
 				</tbody>
 

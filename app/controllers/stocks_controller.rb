@@ -6,10 +6,10 @@ class StocksController < ApplicationController
 				respond_to do |format|
 					flash.now[:notice] = "Stock information found"
 					format.js { render  partial: 'users/result'}
-				end
+			  end
 			else
 				respond_to do |format|
-				    flash.now[:alert] = "Please enter a valid symbol to search"
+				  flash.now[:alert] = "Please enter a valid symbol to search"
 					format.js { render  partial: 'users/result'}
 				end
 			end
