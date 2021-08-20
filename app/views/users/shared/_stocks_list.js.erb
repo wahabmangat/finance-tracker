@@ -1,3 +1,5 @@
-document.querySelector('#stockslist').innerHTML = '<%= j render partial: 'stocks/list.html' %>'
-
- 
+<% if @user === current_user%>
+  document.querySelector('#stockslist').innerHTML = '<%= j render partial: 'stocks/list.html' %>'
+<% else %> 
+  document.querySelector('#friendstockslist').innerHTML = '<%= j render partial: 'stocks/list.html' %>'
+<% end%>

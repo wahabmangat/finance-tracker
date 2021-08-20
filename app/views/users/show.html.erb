@@ -26,8 +26,11 @@
 <br>
 <h3>Stocks tracking</h3>
 <% if !@tracked_stocks.empty?%>
-	<%= render 'stocks/list'%>
-<%else%>
+  <div id="friendstockslist">
+    <%= render 'stocks/list'%>
+  </div>
+<% else %>
   <p class="lead">This user is not tracking any stocks</p>
 <% end %>
+
 

@@ -9,28 +9,29 @@ class UsersController < ApplicationController
   def update_price
     @user = User.where(id: params[:id]).first
     @tracked_stocks =@user.stocks
-    Stock.update_price(@tracked_stocks)
-    # respond_to do |format|
-    #  flash.now[:notice] = "Stock prices updated"
-    #  format.js {render partial: '/shared/stocks_list'}
-    # end
-    if @user == current_user
-      render "my_portfolio" and return
-    else 
-      render "show" and return
+    @tracked_stocks.update_price
+    respond_to do |format|
+     flash.now[:notice] = "Stock prices updated"
+     format.html
+     format.js { render partial: 'users/shared/stocks_list' }
     end
+    # if @user == current_user
+    #   render "my_portfolio" and return
+    # else 
+    #   render "show" and return
+    # end
   end
   def sort_price
     @user = User.where(id: params[:id]).first
     @tracked_stocks =@user.stocks
+
     if params[:ch] == 1
-      @tracked_stocks.sort_by! { |stk| stk.last_price }
-      @tracked_stocks.sort_by(&:last_price)   #=> [...sorted array...]
+      @tracked_stocks = @tracked_stocks.sort_by { |stk| stk.last_price }
     elsif params[:ch] == 0
-      @tracked_stocks.sort_by! { |stk| stk.last_price }.reverse
+      @tracked_stocks = @tracked_stocks.sort_by{ |stk| stk.last_price }.reverse
     end
     if @user == current_user
-      render "my_portfolio" and return
+      render "users/my_portfolio" and return
     else 
       render "show" and return
     end

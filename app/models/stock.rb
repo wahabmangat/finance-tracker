@@ -17,15 +17,15 @@ class Stock < ApplicationRecord
 		def self.check_db(ticker_symbol)
 			find_by_ticker(ticker_symbol)
 		end  
-    def self.update_price(stocks)
+    def self.update_price
       client = IEX::Api::Client.new(
         #publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
         publishable_token: "Tpk_5c6dae0415e34bfebe5d3dc74f450fe2",
         endpoint: 'https://sandbox.iexapis.com/v1'
       )
-      stocks.each do |stock|
-      stock.last_price = client.price(stock.ticker)
-      stock.save
+      all.each do |stock|
+        stock.last_price = client.price(stock.ticker)
+        stock.save
       end 
     end  
 end
