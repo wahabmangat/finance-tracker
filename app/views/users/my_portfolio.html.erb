@@ -1,0 +1,26 @@
+<% content_for :welcome_navbar do%>
+<%=render 'layouts/navbar'%>
+<%end%>
+<h1>My Portfolio</h1>
+<br>
+<div class="search-area">
+    <h3>Search Stocks</h3>
+    <%= form_tag search_stock_path, remote: true, method: :get do %>
+    <div class="form-group row">
+        <div class="col-sm-9 no-right-padding">
+            <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticket symbol", autofocus: true, class: "form-control form-control-lg"%>
+        </div>
+
+        <div class="col-sm-3 no-left-padding">
+            <%= button_tag type: :submit, class: "btn btn-success" do %>
+            <%# <%= fa_icon 'search 2x' %> <!--this is via font awesome gem-->
+            <i class="fa fa-search fa-2x"></i>
+            <% end %>
+        </div>
+
+    </div>
+    <% end %> 
+</div>
+
+<div id="results">
+</div>
