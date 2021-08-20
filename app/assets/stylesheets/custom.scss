@@ -21,8 +21,16 @@ h1 {
 }
 .result-block{
    display: inline-block;
+   margin-bottom: 1rem;
 }
 .padding-right
 {
    padding-right: 1px;
+}
+.logout-button{
+   margin: 5px;
+}
+.user-name{
+   margin-top: 5%;
+   padding-right: 5px
 }
