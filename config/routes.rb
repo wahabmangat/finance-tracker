@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/search_friend', to: "users#search"
   get "/my_friends", to: "users#my_friends"
   get "/users/update_price/:id" ,to: "users#update_price", as: "stock_price_update"
+  get "/users/sort_price/:id", to: "users#sort_price", as: "stock_price_sort"
   resources :friendships, only: [:create, :destroy]
   resources :users, only: [:show ]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

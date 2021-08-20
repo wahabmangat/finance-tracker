@@ -4,7 +4,8 @@ class Stock < ApplicationRecord
   validates :name, :ticker, presence: true
     def self.new_lookup(ticker_symbol)
       client = IEX::Api::Client.new(
-        publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
+        #publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
+        publishable_token: Tpk_5c6dae0415e34bfebe5d3dc74f450fe2,
         endpoint: 'https://sandbox.iexapis.com/v1'
       )
       begin
@@ -18,7 +19,8 @@ class Stock < ApplicationRecord
 		end  
     def self.update_price(stocks)
       client = IEX::Api::Client.new(
-        publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
+        #publishable_token: Rails.application.credentials.iex_client[:sandbox_api_key],
+        publishable_token: Tpk_5c6dae0415e34bfebe5d3dc74f450fe2,
         endpoint: 'https://sandbox.iexapis.com/v1'
       )
       stocks.each do |stock|

@@ -20,6 +20,21 @@ class UsersController < ApplicationController
       render "show" and return
     end
   end
+  def sort_price
+    @user = User.where(id: params[:id]).first
+    @tracked_stocks =@user.stocks
+    if params[:ch] == 1
+      @tracked_stocks.sort_by! { |stk| stk.last_price }
+      @tracked_stocks.sort_by(&:last_price)   #=> [...sorted array...]
+    elsif params[:ch] == 0
+      @tracked_stocks.sort_by! { |stk| stk.last_price }.reverse
+    end
+    if @user == current_user
+      render "my_portfolio" and return
+    else 
+      render "show" and return
+    end
+  end
   def show
     @user = User.find(params[:id])
     @tracked_stocks = @user.stocks
