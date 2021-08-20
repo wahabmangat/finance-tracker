@@ -14,7 +14,11 @@ class UsersController < ApplicationController
     #  flash.now[:notice] = "Stock prices updated"
     #  format.js {render partial: '/shared/stocks_list'}
     # end
-    render "my_portfolio"
+    if @user == current_user
+      render "my_portfolio" and return
+    else 
+      render "show" and return
+    end
   end
   def show
     @user = User.find(params[:id])
