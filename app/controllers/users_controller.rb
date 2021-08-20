@@ -6,6 +6,16 @@ class UsersController < ApplicationController
   def my_friends
     @my_friends = current_user.friends
   end
+  def update_price
+    @user = User.where(id: params[:id]).first
+    @tracked_stocks =@user.stocks
+    Stock.update_price(@tracked_stocks)
+    # respond_to do |format|
+    #  flash.now[:notice] = "Stock prices updated"
+    #  format.js {render partial: '/shared/stocks_list'}
+    # end
+    render "my_portfolio"
+  end
   def show
     @user = User.find(params[:id])
     @tracked_stocks = @user.stocks
@@ -23,7 +33,7 @@ class UsersController < ApplicationController
 			else
 				respond_to do |format|
 				    flash.now[:alert] = "Couldn't find user."
-					format.js { render  partial: 'users/friend_result'}
+					  format.js { render  partial: 'users/friend_result'}
 				end
 			end
 		else 

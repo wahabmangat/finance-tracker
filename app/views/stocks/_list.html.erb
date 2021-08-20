@@ -6,7 +6,7 @@
 						<th scope="col">Ticker</th>
 						<th scope="col">Name</th>
 						<th scope="col"><%= 'Last Price '%> 
-             <%= link_to '#', class: "btn btn-xs btn-info" do %>
+             <%= link_to stock_price_update_path(@user), class: "btn btn-xs btn-info" do %>
              <i class="fas fa-redo-alt"></i>
             <% end %>
             </th>

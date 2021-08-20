@@ -37,3 +37,12 @@ h1 {
 .even-larger-badge {
   font-size: 1.03em;
 }
+.background {
+  background-image: image-url('white.jpeg');
+  background-size:100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
