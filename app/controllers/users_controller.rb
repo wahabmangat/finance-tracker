@@ -3,43 +3,42 @@ class UsersController < ApplicationController
     @user = current_user
     @tracked_stocks = current_user.stocks 
   end
+
   def my_friends
     @my_friends = current_user.friends
   end
+
   def update_price
     @user = User.where(id: params[:id]).first
-    @tracked_stocks =@user.stocks
-    @tracked_stocks.update_price
+    @tracked_stocks=@user.stocks.update_price
     respond_to do |format|
      flash.now[:notice] = "Stock prices updated"
      format.html
      format.js { render partial: 'users/shared/stocks_list' }
     end
-    # if @user == current_user
-    #   render "my_portfolio" and return
-    # else 
-    #   render "show" and return
-    # end
   end
+  
   def sort_price
     @user = User.where(id: params[:id]).first
-    @tracked_stocks =@user.stocks
-
-    if params[:ch] == 1
-      @tracked_stocks = @tracked_stocks.sort_by { |stk| stk.last_price }
-    elsif params[:ch] == 0
-      @tracked_stocks = @tracked_stocks.sort_by{ |stk| stk.last_price }.reverse
+    tracked_stocks =@user.stocks
+    if params[:ch].to_i == 1
+      @tracked_stocks = tracked_stocks.sort_ascend_by_price
+    elsif params[:ch].to_i == 0
+      @tracked_stocks = tracked_stocks.sort_descend_by_price
     end
-    if @user == current_user
-      render "users/my_portfolio" and return
-    else 
-      render "show" and return
+
+    respond_to do |format|
+      flash.now[:notice] = "Stock prices sorted"
+      format.html
+      format.js { render partial: 'users/shared/stocks_list' }
     end
   end
+
   def show
     @user = User.find(params[:id])
     @tracked_stocks = @user.stocks
   end
+
   def search
     if params[:q].values.reject(&:blank?).any?
       @q = User.ransack(params[:q])

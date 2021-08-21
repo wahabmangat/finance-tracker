@@ -9,10 +9,10 @@
              <%= link_to stock_price_update_path(@user), class: "btn btn-xs btn-info" , remote: true do %>
              <i class="fas fa-redo-alt"></i>
             <% end %>
-            <%= link_to stock_price_sort_path(@user, ch: 1), class: "btn btn-xs btn-info" do %>
+            <%= link_to stock_price_sort_path(@user, ch: 1), class: "btn btn-xs btn-info", remote: true do %>
               <i class="fas fa-sort-amount-up"></i>
             <% end %>
-            <%= link_to stock_price_sort_path(@user, ch: 0), class: "btn btn-xs btn-info" do %>
+            <%= link_to stock_price_sort_path(@user, ch: 0), class: "btn btn-xs btn-info", remote: true do %>
               <i class="fas fa-sort-amount-down"></i>
             <% end %>
             </th>
