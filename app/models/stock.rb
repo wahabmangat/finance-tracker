@@ -37,6 +37,10 @@ class Stock < ApplicationRecord
     end 
   end 
   
+  def self.update_all_stocks_price
+    all_stocks = Stock.all
+    all_stocks.update_price
+  end
   # def self.sort_ascend_by_price
   #   order(:last_price)
   # end
@@ -44,5 +48,5 @@ class Stock < ApplicationRecord
   # def self.sort_descend_by_price
   #   order(last_price: :desc)
   # end 
-  
+
 end
