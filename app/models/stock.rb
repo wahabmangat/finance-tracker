@@ -31,12 +31,15 @@ class Stock < ApplicationRecord
       stock.save
     end 
   end 
-
+  
+  private
+  
   def self.sort_ascend_by_price
-    all.order(:last_price)
+    order(:last_price)
   end
 
   def self.sort_descend_by_price
-    all.order(last_price: :desc)
+    order(last_price: :desc)
   end 
+
 end
