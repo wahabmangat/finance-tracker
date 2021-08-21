@@ -14,7 +14,8 @@
 # end
 #
  every 1.minute do
-   runner "Stock.update_all_stocks_price"
+   #runner "Stock.update_all_stocks_price"
+   rake 'stock:update_prices_task'
  end
 
 # Learn more: http://github.com/javan/whenever
