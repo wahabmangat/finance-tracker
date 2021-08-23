@@ -3,9 +3,6 @@ class User < ApplicationRecord
   has_many :stocks, through: :user_stocks
   has_many :friendships
   has_many :friends, through: :friendships
-  #attr_accessible :first_name, :last_name
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -34,18 +31,23 @@ class User < ApplicationRecord
     end
     'Anonymous User'
   end
+
   def self.search(param)
     to_send_back = (matches("email",param) + matches("first_name",param) + matches("last_name",param)).uniq
     return nil unless to_send_back
     to_send_back
   end
+
   def self.matches(field_name, param)
     where("#{field_name} like ?","%#{param}%")
   end
+
   def except_current_user(users)
     users.reject { |user| user.id == self.id}
   end
+
   def not_friends_with?(id_of_user)
     !self.friends.where(id: id_of_user).exists?
   end
+
 end

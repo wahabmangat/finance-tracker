@@ -13,11 +13,19 @@ class StocksController < ApplicationController
 					format.js { render  partial: 'users/result'}
 				end
 			end
+
 		else 
 			respond_to do |format|
 				flash.now[:alert] = "Please enter a symbol to search"
 				format.js { render  partial: 'users/result'}
 			end
 		end
+    
 	end
+
+  def browse
+    if params[:tkr]
+      @tkr = params[:tkr]
+    end
+  end
 end
