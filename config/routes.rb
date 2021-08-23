@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
+  resources :user_stocks, only: [:create, :destroy]
+  #devise_for :users
   root "welcome#index"
   get '/welcome', to: "welcome#index"
-
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  get "/my_portfolio", to: "users#my_portfolio"
+  get '/search_stock', to: "stocks#search"
+  get '/search_friend', to: "users#search"
+  get "/my_friends", to: "users#my_friends"
+  get "/users/update_price/:id" ,to: "users#update_price", as: "stock_price_update"
+  get "/users/sort_price/:id", to: "users#sort_price", as: "stock_price_sort"
+  get "/stocks/browse", to: "stocks#browse", as: "browse_stock"
+  resources :friendships, only: [:create, :destroy]
+  resources :users, only: [:show ]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

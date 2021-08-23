@@ -1,0 +1,75 @@
+@import 'bootstrap/dist/css/bootstrap';
+navbar {
+    background-color: #FDF6EA !important;
+}
+
+.navbar-brand {  
+   font-size: 2rem;
+}
+    
+h1 {
+   color: red;
+}
+.search-area{
+   padding-top: 50px;
+}
+.no-right-padding{
+   padding-right: 1px !important;
+}
+.no-left-padding{
+   padding-left: 1px !important;
+}
+.result-block{
+   display: inline-block;
+   margin-bottom: 1rem;
+}
+.padding-right
+{
+   padding-right: 1px;
+}
+.logout-button{
+   margin: 5px;
+}
+.user-name{
+   margin-top: 5%;
+   padding-right: 5px
+}
+.even-larger-badge {
+  font-size: 1.03em;
+}
+.background {
+  background-image: image-url('white.jpeg');
+  background-size:100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.site-div{
+  overflow:auto;
+  border:3px ridge whitesmoke;
+  width: 100%;
+  height: 90vh;
+}
+//@import url("https://maxcdn.bootstrapcdn.com/font-awesome/5.15.4/css/font-awesome.min.css");
+/////////////
+// .section {
+//   background: #007bff;
+//   background: linear-gradient(to right, #0062E6, #33AEFF);
+// }
+
+// .btn-login {
+//   font-size: 0.9rem;
+//   letter-spacing: 0.05rem;
+//   padding: 0.75rem 1rem;
+// }
+
+// .btn-google {
+//   color: white !important;
+//   background-color: #ea4335;
+// }
+
+// .btn-facebook {
+//   color: white !important;
+//   background-color: #3b5998;
+// }
+// ////////
