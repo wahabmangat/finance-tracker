@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def my_portfolio
-    @q = Stock.ransack(params[:q])
-    @tracked_stocks = @q.result(distinct: true) 
+    # @q = Stock.ransack(params[:q])
+    # @tracked_stocks = @q.result(distinct: true) 
     @user = current_user
     @tracked_stocks = current_user.stocks 
   end
