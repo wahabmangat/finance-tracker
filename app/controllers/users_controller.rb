@@ -3,7 +3,8 @@ class UsersController < ApplicationController
     # @q = Stock.ransack(params[:q])
     # @tracked_stocks = @q.result(distinct: true) 
     @user = current_user
-    @tracked_stocks = current_user.stocks 
+    @tracked_stocks = current_user.stocks.paginate(page: params[:page], per_page: 6)
+
   end
 
   def my_friends
